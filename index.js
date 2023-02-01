@@ -10,7 +10,8 @@ require("./models/Blog");
 require("./services/passport");
 
 mongoose.Promise = global.Promise;
-mongoose.connect(keys.mongoURI, { useMongoClient: true });
+mongoose.set("strictQuery", false);
+mongoose.connect(keys.mongoURI, { autoIndex: true });
 
 const app = express();
 
